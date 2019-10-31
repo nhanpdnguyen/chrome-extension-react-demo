@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 import UIDemo from "./components/UIDemo";
 import FormDemo from "./components/FormDemo";
 

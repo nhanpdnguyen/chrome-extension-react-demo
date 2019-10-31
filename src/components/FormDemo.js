@@ -1,11 +1,13 @@
 import React from 'react';
+import Axios from 'axios';
 
 class FormDemo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      data: 'No data'
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,6 +25,13 @@ class FormDemo extends React.Component {
     alert(`${this.state.username} ${this.state.password}`);
     e.preventDefault();
   }
+  fetchData = () => {
+    const url = 'https://jsonplaceholder.typicode.com/todos/1';
+    Axios.get(url).then(res => {
+      console.log(res);
+      this.setState({ data: JSON.stringify(res.data) });
+    })
+  }
   render() {
     return (
       <div className="form-demo">
@@ -39,6 +48,8 @@ class FormDemo extends React.Component {
             <input type="submit" value="Submit" />
           </div>
         </form>
+        <div>{this.state.data}</div>
+        <button onClick={() => this.fetchData()}>Fetch data</button>
       </div>);
   }
 }

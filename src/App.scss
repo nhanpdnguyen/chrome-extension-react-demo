@@ -1,5 +1,10 @@
 .App {
   padding: 1em;
+  width: 450px;
+  height: 500px;
+  button {
+    width: fit-content;
+  }
 }
 
 .App-logo {
